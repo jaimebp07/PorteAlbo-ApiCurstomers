@@ -6,9 +6,11 @@ const { ApolloServer } = require('apollo-server-express');
 
 const { typeDefs } = require('./graphql/typeDef')
 const { resolvers } = require('./graphql/resolvers');
-
+const peopleContactRoutes  = require('./routes/PeopleContactRoutes')
 
 const app = express();
+
+app.use('/', peopleContactRoutes);
 
 async function start(){
     const apolloServer = new ApolloServer({ typeDefs, resolvers });

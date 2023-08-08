@@ -1,9 +1,13 @@
+
 // const clientes = require('../data/data');
 
 const peopleContactController = {
     hello: () => {
         return `holaaa`;
-    }
+    },
+    displayStartupInformation: (req, res) => {
+        res.sed({message: "Hola!, Bienvenido." })
+    },
     
 //   obtenerClientes: () => clientes,
 //   obtenerClientePorId: (id) => clientes.find((cliente) => cliente.id === id),
