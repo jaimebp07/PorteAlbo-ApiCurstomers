@@ -6,11 +6,12 @@ const { ApolloServer } = require('apollo-server-express');
 
 const { typeDefs } = require('./graphql/typeDef')
 const { resolvers } = require('./graphql/resolvers');
-const peopleContactRoutes  = require('./routes/PeopleContactRoutes')
+const peopleContactRoutes  = require('./routes/PeopleContactRoutes');
+const {connectDB} = require('./db')
 
 const app = express();
 
-app.use('/', peopleContactRoutes);
+connectDB();  
 
 async function start(){
     const apolloServer = new ApolloServer({ typeDefs, resolvers });
@@ -18,6 +19,8 @@ async function start(){
     await apolloServer.start();
     // apolloServer.applyMiddleware({ app, path: "/api" });
     apolloServer.applyMiddleware({ app });
+
+    app.use('/', peopleContactRoutes);
 
     // app.use((req, res, next) => {
     //     res.status(404).send("not found");
