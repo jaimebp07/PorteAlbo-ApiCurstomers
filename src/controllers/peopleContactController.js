@@ -1,41 +1,25 @@
-
+const PeopleContact = require('../models/PeopleContactModel')
 // const clientes = require('../data/data');
 
 const peopleContactController = {
     hello: () => {
         return `holaaa`;
     },
-    displayStartupInformation: (req, res) => {
-        res.sed({message: "Hola!, Bienvenido." })
+    getAllContactInformation: async () => {
+        const contacts = await PeopleContact.find()
+        return contacts;
     },
-    
-//   obtenerClientes: () => clientes,
-//   obtenerClientePorId: (id) => clientes.find((cliente) => cliente.id === id),
-//   crearCliente: (clienteData) => {
-//     const nuevoCliente = {
-//       id: String(Date.now()),
-//       ...clienteData,
-//     };
-//     clientes.push(nuevoCliente);
-//     return nuevoCliente;
-//   },
-//   actualizarCliente: (clienteData) => {
-//     const { id } = clienteData;
-//     const clienteExistente = clientes.find((cliente) => cliente.id === id);
-//     if (!clienteExistente) {
-//       throw new Error(`Cliente con ID ${id} no encontrado`);
-//     }
-//     Object.assign(clienteExistente, clienteData);
-//     return clienteExistente;
-//   },
-//   eliminarCliente: (id) => {
-//     const index = clientes.findIndex((cliente) => cliente.id === id);
-//     if (index === -1) {
-//       throw new Error(`Cliente con ID ${id} no encontrado`);
-//     }
-//     const [clienteEliminado] = clientes.splice(index, 1);
-//     return clienteEliminado;
-//   },
+    createPeopleContact: async (args) => {
+        const { name_pcontact, number_phone_pcontact, email_pcontact, company_pcontact, city_pcontact } = args.peopleContactInput;
+        const newPeopleContact = new PeopleContact({ name_pcontact, number_phone_pcontact, email_pcontact, company_pcontact, city_pcontact });
+        await newPeopleContact.save();
+        return newPeopleContact;
+    },
+    getPeopleContact: async (args) => {
+        const contact = await PeopleContact.findById(args.id);
+        return contact;
+    }
 };
 
 module.exports = peopleContactController;
+

@@ -1,31 +1,32 @@
 const { gql } = require('apollo-server-express');
 
-const typeDefs = gql`
+const typeDefs = gql `
+  type PeopleContact {
+    id: ID
+    name_pcontact: String
+    number_phone_pcontact: String
+    email_pcontact: String
+    company_pcontact: String
+    city_pcontact: String
+  }
+
   type Query {
     hello : String!
+    getAllContactInformation: [PeopleContact]
+    getPeopleContact(id: ID): PeopleContact
+  }
+
+  input PeopleContactInput {
+    name_pcontact: String
+    number_phone_pcontact: String
+    email_pcontact: String
+    company_pcontact: String
+    city_pcontact: String
+  }
+
+  type Mutation {
+    createPeopleContact(peopleContactInput: PeopleContactInput): PeopleContact
   }
 `;
-
-// const typeDefs = gql`
-//   type peopleContact {
-//     id: ID!
-//     nombre: String!
-//     numeroTelefonico: String!
-//     empresa: String!
-//     ciudad: String!
-//     ubicada: String!
-//   }
-
-//   type Query {
-//     InterestedContacts: [Cliente!]!
-//     contactInterested(id: ID!): Cliente
-//   }
-
-//   type Mutation {
-//     createContactInterested(nombre: String!, numeroTelefonico: String!, empresa: String!, ciudad: String!, ubicada: String!): Cliente!
-//     updateContactInterested(id: ID!, nombre: String, numeroTelefonico: String, empresa: String, ciudad: String, ubicada: String): Cliente
-//     deleteContactInterested(id: ID!): Cliente
-//   }
-// `;
 
 module.exports = {typeDefs}
