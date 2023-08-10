@@ -5,10 +5,12 @@ const resolvers = {
     hello: () => peopleContactController.hello(),
     getAllContactInformation: () => peopleContactController.getAllContactInformation(),
     getPeopleContact: (_, args) => peopleContactController.getPeopleContact(args),
-    deletePeopleContact: (_, {id}) => peopleContactController.deletePeopleContact(id),
   },
   Mutation: {
     createPeopleContact: (_, args, context, info) => peopleContactController.createPeopleContact(args),
+    deletePeopleContact: (_, {id}) => peopleContactController.deletePeopleContact(id),
+    updatePeopleContact: (_, {id, peopleContactInput}) => peopleContactController.updatePeopleContact(id, peopleContactInput),
+
   }
 };
 

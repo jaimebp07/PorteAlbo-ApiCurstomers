@@ -22,6 +22,10 @@ const peopleContactController = {
     deletePeopleContact: async (id) => {
         await PeopleContact.findByIdAndDelete(id);
         return "Contact delete";
+    },
+    updatePeopleContact: async (id, peopleContactInput) => {
+        const contact = await PeopleContact.findByIdAndUpdate(id, {$set: peopleContactInput}, {new: true})
+        return contact;
     }
 };
 

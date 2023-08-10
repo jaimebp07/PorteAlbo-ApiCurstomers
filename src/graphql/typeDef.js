@@ -14,7 +14,6 @@ const typeDefs = gql `
     hello : String!
     getAllContactInformation: [PeopleContact]
     getPeopleContact(id: ID): PeopleContact
-    deletePeopleContact(id: ID): String
   }
 
   input PeopleContactInput {
@@ -27,6 +26,8 @@ const typeDefs = gql `
 
   type Mutation {
     createPeopleContact(peopleContactInput: PeopleContactInput): PeopleContact
+    deletePeopleContact(id: ID!): String
+    updatePeopleContact(id: ID!, peopleContactInput: PeopleContactInput): PeopleContact
   }
 `;
 
