@@ -14,6 +14,7 @@ const typeDefs = gql `
     hello : String!
     getAllContactInformation: [PeopleContact]
     getPeopleContact(id: ID): PeopleContact
+    deletePeopleContact(id: ID): String
   }
 
   input PeopleContactInput {

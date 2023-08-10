@@ -18,6 +18,10 @@ const peopleContactController = {
     getPeopleContact: async (args) => {
         const contact = await PeopleContact.findById(args.id);
         return contact;
+    },
+    deletePeopleContact: async (id) => {
+        await PeopleContact.findByIdAndDelete(id);
+        return "Contact delete";
     }
 };
 
