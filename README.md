@@ -1,5 +1,33 @@
 # PorteAlbo-ApiCurstomers
  
+# API GraphQL de PeopleContact
+
+Esta API GraphQL permite gestionar información de contactos de las personas que entran a la landing de PorteAlbo y desean dejar sus datos para ser contactadas posteriormente por un asesor comercial de la empresa
+
+## Instalación
+
+1. Clona este repositorio y instala las dependencias:
+
+```bash
+git clone https://github.com/jaimebp07/PorteAlbo-ApiCurstomers.git
+cd PorteAlbo-ApiCurstomers.git
+npm install
+```
+
+## Uso
+
+```bash
+npm start
+```
+- Accede a la API en http://localhost:3000/graphql para explorar resolvers, consultas y mutaciones.
+
+## Estructura del Proyecto
+
+* `controllers/:` Controladores para la lógica de negocio.
+* `models/:` Modelos de la base de datos.
+* `resolvers/:` Resolvers para las solicitudes GraphQL.
+* `schemas/:` Esquemas GraphQL con Apollo Server.
+* `tests/:` Pruebas unitarias para controladores y resolvers.
 
 ## Querys Apollographql
 
