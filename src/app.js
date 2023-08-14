@@ -1,30 +1,23 @@
-const express = require('express');
-const { readFileSync } = require('fs');
-const { ApolloServer } = require('apollo-server-express');
+import express from 'express';
+import { ApolloServer } from 'apollo-server-express';
 
-// const typeDefs = readFileSync('./graphql/schema.graphql', 'utf8');
-
-const { typeDefs } = require('./graphql/typeDef')
-const { resolvers } = require('./graphql/resolvers');
-const peopleContactRoutes  = require('./routes/PeopleContactRoutes');
-const {connectDB} = require('./db')
+import typeDefsModule from './graphql/typeDef.js';
+import resolversModule from './graphql/resolvers.js';
+import peopleContactRoutesModule from './routes/PeopleContactRoutes.js';
+import { connectDB } from './db.js';
 
 const app = express();
 
 connectDB();  
 
 async function start(){
-    const apolloServer = new ApolloServer({ typeDefs, resolvers });
+    const apolloServer = new ApolloServer({ typeDefs: typeDefsModule, resolvers: resolversModule });
 
     await apolloServer.start();
-    // apolloServer.applyMiddleware({ app, path: "/api" });
+
     apolloServer.applyMiddleware({ app });
 
-    app.use('/', peopleContactRoutes);
-
-    // app.use((req, res, next) => {
-    //     res.status(404).send("not found");
-    // });
+    app.use('/', peopleContactRoutesModule);
 
     app.listen( 3000, () =>
       console.log("Server on port",  3000)

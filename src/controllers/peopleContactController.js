@@ -1,5 +1,4 @@
-const PeopleContact = require('../models/PeopleContactModel')
-// const clientes = require('../data/data');
+import PeopleContact from '../models/PeopleContactModel.js';
 
 const peopleContactController = {
     hello: () => {
@@ -29,5 +28,5 @@ const peopleContactController = {
     }
 };
 
-module.exports = peopleContactController;
+export default peopleContactController;
 

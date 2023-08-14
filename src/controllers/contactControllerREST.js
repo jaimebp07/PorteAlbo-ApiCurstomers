@@ -9,4 +9,4 @@ contactControllerREST.pageNotFound = (req, res) => {
 }
 
 
-module.exports = contactControllerREST;
+export default contactControllerREST;

@@ -14,6 +14,13 @@ cd PorteAlbo-ApiCurstomers.git
 npm install
 ```
 
+## Test
+
+1. Ejecutar el siguiente comando para corer los tests unitarios
+```bash
+npm run test
+```
+
 ## Uso
 
 ```bash

@@ -1,6 +1,6 @@
-const peopleContactController = require('../controllers/peopleContactController')
+import * as peopleContactController from '../controllers/peopleContactController.js';
 
-const resolvers = {
+const resolversModule = {
   Query: {
     hello: () => peopleContactController.hello(),
     getAllContactInformation: () => peopleContactController.getAllContactInformation(),
@@ -14,4 +14,4 @@ const resolvers = {
   }
 };
 
-module.exports = { resolvers }
+export default resolversModule ;

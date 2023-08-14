@@ -1,6 +1,6 @@
-const { gql } = require('apollo-server-express');
+import { gql } from 'apollo-server-express';
 
-const typeDefs = gql `
+const typeDefsModule = gql `
   type PeopleContact {
     id: ID
     name_pcontact: String
@@ -31,4 +31,4 @@ const typeDefs = gql `
   }
 `;
 
-module.exports = {typeDefs}
+export default typeDefsModule;

@@ -1,9 +1,11 @@
-const router = require('express').Router();
+import express from 'express';
+import contactControllerREST from '../controllers/contactControllerREST.js';
 
-const contactControllerREST = require('../controllers/contactControllerREST');
+const peopleContactRoutesModule = express.Router();
 
-router.get('/', contactControllerREST.displayStartupInformation);
+peopleContactRoutesModule.get('/', contactControllerREST.displayStartupInformation);
 // router.post('/addcustomer', customerController.addcustomer)
 
-router.get('*', contactControllerREST.pageNotFound)
-module.exports = router;
+peopleContactRoutesModule.get('*', contactControllerREST.pageNotFound)
+
+export default peopleContactRoutesModule;
