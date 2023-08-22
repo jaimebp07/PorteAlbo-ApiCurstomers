@@ -1,13 +1,13 @@
-import { gql } from 'apollo-server-express';
+import { gql } from 'apollo-server-express'
 
-const typeDefsModule = gql `
+const typeDefsModule = gql`
   type PeopleContact {
     id: ID
-    name_pcontact: String
-    number_phone_pcontact: String
-    email_pcontact: String
-    company_pcontact: String
-    city_pcontact: String
+    nameContact: String
+    numberPhoneContact: String
+    emailContact: String
+    companyContact: String
+    cityContact: String
   }
 
   type Query {
@@ -17,11 +17,11 @@ const typeDefsModule = gql `
   }
 
   input PeopleContactInput {
-    name_pcontact: String
-    number_phone_pcontact: String
-    email_pcontact: String
-    company_pcontact: String
-    city_pcontact: String
+    nameContact: String
+    numberPhoneContact: String
+    emailContact: String
+    companyContact: String
+    cityContact: String
   }
 
   type Mutation {
@@ -29,6 +29,6 @@ const typeDefsModule = gql `
     deletePeopleContact(id: ID!): String
     updatePeopleContact(id: ID!, peopleContactInput: PeopleContactInput): PeopleContact
   }
-`;
+`
 
-export default typeDefsModule;
+export default typeDefsModule

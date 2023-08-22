@@ -1,28 +1,28 @@
-import { Schema, model } from 'mongoose';
+import { Schema, model } from 'mongoose'
 
 const contactInformationSchema = new Schema({
-  name_pcontact: {
+  nameContact: {
     type: String,
     required: true
   },
-  number_phone_pcontact: {
+  numberPhoneContact: {
     type: String,
     required: true
   },
-  email_pcontact: {
+  emailContact: {
     type: String,
     required: true
   },
-  company_pcontact: {
+  companyContact: {
     type: String,
     required: true
   },
-  city_pcontact: {
+  cityContact: {
     type: String,
     required: true
   }
-});
+})
 
-const PeopleContact = model('PeopleContact', contactInformationSchema);
+const PeopleContact = model('PeopleContact', contactInformationSchema)
 
-export default PeopleContact;
+export default PeopleContact

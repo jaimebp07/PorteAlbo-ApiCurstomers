@@ -21,6 +21,10 @@
   },
   "devDependencies": {
     "glob": "^10.3.3",
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.0.1",
+    "standard": "17.1.0"
+  },
+  "eslintConfig": {
+    "extends":"standard"
   }
 }
