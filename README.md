@@ -79,4 +79,18 @@ mutation {
     city_pcontact
   }
 }
-hola2
+
+## Construcion DB Docker
+```bash
+docker tirar mysql
+docker run -d --nombre mySql-cont -e MYSQL_ROOT_PASSWORD=mysql123 mysql:latest
+docker ps
+docker exec -it mySql-cont bash
+mysql -uroot -p
+CREATE DATABASE CustomersDB;
+SHOW DATABASES;
+USE CustomersDB;
+CREATE TABLE customers (id BINARY(16) PRIMARY KEY DEFAULT (UUID_TO_BIN(UUID())), nameContact VARCHAR(255) NOT NULL, numberPhoneContact VARCHAR(10) NOT NULL, emailContact VARCHAR(100), companyContact VARCHAR(100), cityContact VARCHAR(100));
+INSERT INTO customers (id, nameContact, numberPhoneContact, emailContact, companyContact, cityContact) VALUES (UUID_TO_BIN(UUID()), "Juan Arango", "3245676647", "prueba@gmail.com", "Los Alpes", "Bucaramanga")
+
+```
